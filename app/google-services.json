@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "366628365431",
+    "project_id": "amal-s-project",
+    "storage_bucket": "amal-s-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366628365431:android:99d8e510c169b573491272",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366628365431-ge0vljb7k30rmm1ncsisulq7r1man3ms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNAIVN95p6Cxh341nYokSVs2fvhaFSNHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366628365431-ge0vljb7k30rmm1ncsisulq7r1man3ms.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

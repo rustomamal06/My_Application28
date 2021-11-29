@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">My Application28</string>
+
+    <string-array name="time">
+
+    <item> 25 minutes</item>
+
+    <item> 30 minutes </item>
+
+    <item> 45 minutes </item>
+
+</string-array>
+
+
+    <string-array name="category">
+
+    <item> work </item>
+
+    <item> school</item>
+
+    <item> appointments </item>
+
+</string-array>
+</resources>

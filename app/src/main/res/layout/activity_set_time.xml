@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+android:background="@drawable/mybackground"
+    tools:context=".SetTimeActivity">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="600dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="Set Goals for yourself"
+        android:textSize="22dp" />
+
+    <TextView
+        android:layout_marginTop="50dp"
+        android:id="@+id/textView2"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:textColor="@color/black"
+        android:gravity="left"
+        android:text="Set a Time"
+        android:textSize="20dp" />
+
+    <Spinner
+        android:id="@+id/timespinner"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:id="@+id/textView3"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:textColor="@color/black"
+        android:gravity="left"
+        android:text="Choose a Category"
+        android:textSize="20dp" />
+
+    <Spinner
+        android:id="@+id/categoryspinner"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp" />
+
+         <Button
+             android:layout_marginTop="20dp"
+             android:id="@+id/buttonstart"
+             android:layout_width="200dp"
+             android:layout_height="wrap_content"
+             android:backgroundTint="#2AFF5722"
+             android:onClick="Submit"
+             android:padding="15dp"
+             android:text="Get Started" />
+
+</LinearLayout>
