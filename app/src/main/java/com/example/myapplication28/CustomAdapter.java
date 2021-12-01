@@ -2,6 +2,8 @@ package com.example.myapplication28;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -46,6 +48,7 @@ public class CustomAdapter  extends ArrayAdapter<Item> {
              @Override
              public void onClick(View view) {
                  Toast.makeText(context,"This item was added to shopping cart",Toast.LENGTH_LONG).show();
+
              }
          });
 
@@ -55,4 +58,5 @@ public class CustomAdapter  extends ArrayAdapter<Item> {
       }
      return view;
     }
+
 }
