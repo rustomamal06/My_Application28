@@ -36,7 +36,7 @@ public class FirstActivity extends AppCompatActivity {
     }
 
     public void Submit4(View view) {
-        Intent intent= new Intent(this,ProfileActivity.class) ;
+        Intent intent= new Intent(this,AddActivity.class) ;
         startActivity(intent);
     }
 
