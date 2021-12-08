@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class SetTimeActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
   private Spinner spinner1;
   private Spinner spinner2;
@@ -28,6 +31,7 @@ public class SetTimeActivity extends AppCompatActivity implements AdapterView.On
          spinner1.setOnItemSelectedListener(this);
          spinner2.setAdapter(adapter2);
          spinner2.setOnItemSelectedListener(this);
+
     }
 
     @Override

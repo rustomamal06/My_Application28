@@ -13,6 +13,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class ArrayListActivity extends AppCompatActivity {
@@ -24,11 +28,19 @@ public class ArrayListActivity extends AppCompatActivity {
     //the object containing the items to be displayed - Data
     private ArrayList<Item> list;
 
+
+  private   FirebaseAuth maFirebaseAuth=FirebaseAuth.getInstance();
+    private FirebaseDatabase database = FirebaseDatabase.getInstance("https://amal-s-project-default-rtdb.europe-west1.firebasedatabase.app/");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_array_list);
+        // Write a message to the database
 
+        String UID=maFirebaseAuth.getUid();
+        DatabaseReference myRef = database.getReference("users");
+
+        myRef.push().setValue(new Item("This is my first item",R.drawable.background,true,50));
         list = new ArrayList<>();
         list.add(new Item("This is my firstItem",R.drawable.mybackground,true,50));
         list.add(new Item("This is my secondItem",R.drawable.background,true,50));

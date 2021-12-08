@@ -1,6 +1,7 @@
 package com.example.myapplication28;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -42,9 +43,9 @@ public class CustomAdapter  extends ArrayAdapter<Item> {
       Item item =getItem(position);//method from the android studio, not related to Item object
       if(item==null){
           ImageView imageView=view.findViewById(R.id.checkBox);
-          TextView textViewDescription =view.findViewById(R.id.textViewDesc);
-          Button itemButton = view.findViewById(R.id.textViewDesc);
-         itemButton.setOnClickListener(new OnClickListener() {
+
+          Button button = view.findViewById(R.id.buttonstart1);
+         button.setOnClickListener(new OnClickListener() {
              @Override
              public void onClick(View view) {
                  Toast.makeText(context,"This item was added to shopping cart",Toast.LENGTH_LONG).show();
@@ -54,7 +55,7 @@ public class CustomAdapter  extends ArrayAdapter<Item> {
 
 
           imageView.setImageResource(item.getResid());
-          textViewDescription.setText(item.getDescription());
+
       }
      return view;
     }

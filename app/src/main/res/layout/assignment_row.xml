@@ -16,14 +16,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="CheckBox" />
-    <TextView
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:id="@+id/textViewDesc"
-        android:textSize="24dp"
-        android:text="Assigntment"/>
+            android:text="Assignment Name                       Due Date" />
 
+        <Button
+
+            android:id="@+id/buttonstart1"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#2AFF5722"
+            android:onClick="Submit"
+            android:padding="15dp"
+            android:text="Start Working" />
 
 
 

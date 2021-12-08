@@ -26,7 +26,7 @@ public class FirstActivity extends AppCompatActivity {
     }
 
     public void Submit2(View view) {
-        Intent intent= new Intent(this,SignUPActivity.class) ;
+        Intent intent= new Intent(this,TimerActivity.class) ;
         startActivity(intent);
     }
 
