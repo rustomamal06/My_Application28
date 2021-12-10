@@ -2,6 +2,7 @@ package com.example.myapplication28;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -11,8 +12,8 @@ import android.widget.TextView;
 import java.util.Locale;
 
 public class TimerActivity extends AppCompatActivity {
+    private Intent intent = getIntent();
 
-    private static final long START_TIME_IN_MILLIS = 1500000;
 
     private TextView mTextViewCountDown;
     private Button mButtonStartPause;
@@ -22,13 +23,16 @@ public class TimerActivity extends AppCompatActivity {
 
     private boolean mTimerRunning;
 
-    private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
+    private long mTimeLeftInMillis = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer);
 
+        Bundle extras = intent.getExtras();
+        //long start_time_in_millis = extras.getLong("TIME");
+        //mTimeLeftInMillis=start_time_in_millis;
         mTextViewCountDown = findViewById(R.id.text_view_countdown);
 
         mButtonStartPause = findViewById(R.id.button_start_pause);
@@ -85,7 +89,6 @@ public class TimerActivity extends AppCompatActivity {
     }
 
     private void resetTimer() {
-        mTimeLeftInMillis = START_TIME_IN_MILLIS;
         updateCountDownText();
         mButtonReset.setVisibility(View.INVISIBLE);
         mButtonStartPause.setVisibility(View.VISIBLE);

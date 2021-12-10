@@ -14,8 +14,11 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -28,8 +31,9 @@ public class ArrayListActivity extends AppCompatActivity {
     //the object containing the items to be displayed - Data
     private ArrayList<Item> list;
 
-
+  //Get instance of Authentication Project in FB console
   private   FirebaseAuth maFirebaseAuth=FirebaseAuth.getInstance();
+  //Gets the root of the Real Time Database in the FB console
     private FirebaseDatabase database = FirebaseDatabase.getInstance("https://amal-s-project-default-rtdb.europe-west1.firebasedatabase.app/");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,7 @@ public class ArrayListActivity extends AppCompatActivity {
 
         String UID=maFirebaseAuth.getUid();
         DatabaseReference myRef = database.getReference("users");
+        //adds an item to the firebase under the referenced specified
 
         myRef.push().setValue(new Item("This is my first item",R.drawable.background,true,50));
         list = new ArrayList<>();
@@ -69,7 +74,21 @@ public class ArrayListActivity extends AppCompatActivity {
                 return false;
             }
         });
+          myRef.addValueEventListener(new ValueEventListener() {
+              @Override
+              public void onDataChange(@NonNull DataSnapshot snapshot) {
+                  for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                      Item item1=dataSnapshot.getValue(Item.class);
+                      list.add(item1);
+                      myAdapter.notifyDataSetChanged();
+                  }
+              }
 
+              @Override
+              public void onCancelled(@NonNull DatabaseError error) {
+
+              }
+          });
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
