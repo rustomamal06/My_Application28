@@ -30,9 +30,9 @@ public class TimerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer);
 
-        Bundle extras = intent.getExtras();
-        //long start_time_in_millis = extras.getLong("TIME");
-        //mTimeLeftInMillis=start_time_in_millis;
+        Bundle extras = getIntent().getExtras();
+        long start_time_in_millis = extras.getLong("TIME");
+        mTimeLeftInMillis=start_time_in_millis;
         mTextViewCountDown = findViewById(R.id.text_view_countdown);
 
         mButtonStartPause = findViewById(R.id.button_start_pause);
