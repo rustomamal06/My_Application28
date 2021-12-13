@@ -39,15 +39,9 @@ public class SetTimeActivity extends AppCompatActivity implements AdapterView.On
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        if(view == spinner1){
             selectedTime = minutes[i];
             String choice =adapterView.getItemAtPosition(i).toString();
             Toast.makeText(getApplicationContext() , choice, Toast.LENGTH_LONG).show();
-        }else{
-            String choice =adapterView.getItemAtPosition(i).toString();
-            Toast.makeText(getApplicationContext() , choice, Toast.LENGTH_LONG).show();
-        }
-
 
     }
 
@@ -57,7 +51,7 @@ public class SetTimeActivity extends AppCompatActivity implements AdapterView.On
     }
     public void Submit(View view) {
         Intent intent= new Intent(this,TimerActivity.class) ;
-        //intent.putExtra("TIME",selectedTime);
+        intent.putExtra("TIME",selectedTime);
         startActivity(intent);
     }
 }
