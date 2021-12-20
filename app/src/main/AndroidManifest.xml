@@ -9,6 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication28">
+        <service
+            android:name=".MusicService"
+            android:enabled="true"
+            android:exported="true"></service>
+        <service
+            android:name=".NotificationIntentService"
+            android:exported="false" />
+        <receiver android:name=".NotificationReciever"
+            android:enabled="true"
+            android:exported="true"
+     />
         <activity
             android:name=".TimerActivity"
             android:exported="true" />
