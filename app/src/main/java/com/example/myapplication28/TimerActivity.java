@@ -38,6 +38,9 @@ public class TimerActivity extends AppCompatActivity {
         mButtonStartPause = findViewById(R.id.button_start_pause);
         mButtonReset = findViewById(R.id.button_reset);
        mTimerRunning=false;
+        //this will start the service which in turn will the music
+        Intent musicIntent = new Intent(this, MusicService.class);
+        startService(musicIntent);
         mButtonStartPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,6 +50,7 @@ public class TimerActivity extends AppCompatActivity {
                     startTimer();
                 }
             }
+
         });
 
         mButtonReset.setOnClickListener(new View.OnClickListener() {

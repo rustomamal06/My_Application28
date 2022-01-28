@@ -28,11 +28,12 @@
             android:text="Start Working"
             android:textSize="10dp"/>
 <Button
-    android:id="@+id/button2"
+    android:id="@+id/delete"
     android:layout_width="30dp"
     android:layout_height="50dp"
     android:drawableBottom="@drawable/ic_delete"
     android:backgroundTint="@android:color/transparent"
+    android:onClick="Delete"
     />
 
 

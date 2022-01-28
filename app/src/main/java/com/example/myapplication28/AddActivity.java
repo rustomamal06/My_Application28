@@ -25,6 +25,9 @@ import java.util.Calendar;
 
 public class AddActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     EditText date_time_in;
+    private Assigntment a=null;
+    private String Category;
+    private
     private Spinner spinner;
    private Button startbutton;
     @Override
@@ -56,7 +59,8 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
 
     }
     public void Submit(View view) {
-        Intent intent= new Intent(this,ArrayListActivity.class) ;
+        Intent intent= new Intent(getApplicationContext(),ArrayListActivity.class) ;
+        a=new Assigntment()
         startActivity(intent);
     }
     private void showDateTimeDialog(final EditText date_time_in) {

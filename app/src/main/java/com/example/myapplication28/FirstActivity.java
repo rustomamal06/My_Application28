@@ -23,8 +23,8 @@ public class FirstActivity extends AppCompatActivity {
         buttonProfile=findViewById(R.id.buttonProfile);
         buttonassignment=findViewById(R.id.buttonassignment);
 //this will start the service which in turn will the music
-        Intent musicIntent = new Intent(this, MusicService.class);
-        startService(musicIntent);
+       // Intent musicIntent = new Intent(this, MusicService.class);
+      //  startService(musicIntent);
         Intent notifyIntent = new Intent(this,NotificationReciever.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast
                 (this, NOTIFICATION_REMINDER_NIGHT, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
