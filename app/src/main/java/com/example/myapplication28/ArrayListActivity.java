@@ -45,7 +45,7 @@ public class ArrayListActivity extends AppCompatActivity {
         // Write a message to the database
 
         String UID = maFirebaseAuth.getUid();
-        DatabaseReference myRef = database.getReference("users");
+        DatabaseReference myRef = database.getReference("users/"+UID);
         //adds an item to the firebase under the referenced specified
 
         myRef.push().setValue(new Item("This is my first item", R.drawable.background, true, 50));

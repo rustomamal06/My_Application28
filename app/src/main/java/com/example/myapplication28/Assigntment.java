@@ -3,8 +3,9 @@ package com.example.myapplication28;
 import java.util.Date;
 
 public class Assigntment {
-    private Date duedate;
-
+    private String duedate;
+    private String category;
+    private String name;
     public String getCategory() {
         return category;
     }
@@ -13,22 +14,21 @@ public class Assigntment {
         this.category = category;
     }
 
-    private String category;
-    private String name;
 
-    public Assigntment(Date duedate, String catgory) {
-        this.duedate = duedate;
+
+    public Assigntment(String duedate, String catgory) {
+        this.duedate=duedate;
         this.category= catgory;
     }
 
     public Assigntment() {
     }
 
-    public Date getDuedate() {
+    public String getDuedate() {
         return duedate;
     }
 
-    public void setDuedate(Date duedate) {
+    public void setDuedate(String duedate) {
         this.duedate = duedate;
     }
 

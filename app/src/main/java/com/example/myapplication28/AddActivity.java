@@ -20,20 +20,32 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.sql.Date;
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+
 public class AddActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     EditText date_time_in;
-    private Assigntment a=null;
+    private  Assigntment a = new Assigntment();
+    private Date date;
+    private Time time;
     private String Category;
-    private
+    private FirebaseDatabase database = FirebaseDatabase.getInstance("https://amal-s-project-default-rtdb.europe-west1.firebasedatabase.app/");
+    DatabaseReference myRef;
     private Spinner spinner;
    private Button startbutton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
+        String user = FirebaseAuth.getInstance().getUid();
+        myRef = database.getReference("users/" + user);
         date_time_in=findViewById(R.id.date_time_input);
         date_time_in.setInputType(InputType.TYPE_NULL);
         spinner=findViewById(R.id.categoryspinner);
@@ -47,6 +59,18 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
                 showDateTimeDialog(date_time_in);
             }
         });
+        startbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), ArrayListActivity.class);
+
+                a= new Assigntment(date.toString(), time.toString());
+                myRef.push().setValue(a);
+
+                startActivity(i);
+            }
+        });
+
     }
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -60,7 +84,7 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
     }
     public void Submit(View view) {
         Intent intent= new Intent(getApplicationContext(),ArrayListActivity.class) ;
-        a=new Assigntment()
+        a=new Assigntment();
         startActivity(intent);
     }
     private void showDateTimeDialog(final EditText date_time_in) {

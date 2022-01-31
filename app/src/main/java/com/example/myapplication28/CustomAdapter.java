@@ -45,8 +45,8 @@ public class CustomAdapter  extends ArrayAdapter<Assigntment> {
           ImageView imageView=view.findViewById(R.id.checkBox);
 
           Button button = view.findViewById(R.id.buttonstart1);
-          TextView tvDescription = view.findViewById(R.id.checkBox);
-          tvDescription.setText(item.getCategory());
+          TextView textViewDate=view.findViewById(R.id.textViewDate);
+          textViewDate.setText(item.getDuedate());
          button.setOnClickListener(new OnClickListener() {
              @Override
              public void onClick(View view) {
