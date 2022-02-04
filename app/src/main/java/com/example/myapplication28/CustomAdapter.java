@@ -46,7 +46,9 @@ public class CustomAdapter  extends ArrayAdapter<Assigntment> {
 
           Button button = view.findViewById(R.id.buttonstart1);
           TextView textViewDate=view.findViewById(R.id.textViewDate);
-          textViewDate.setText(item.getDuedate());
+          TextView textViewTime=view.findViewById(R.id.textViewTime);
+          textViewDate.setText(item.getDate());
+          textViewTime.setText(item.getTime());
          button.setOnClickListener(new OnClickListener() {
              @Override
              public void onClick(View view) {
@@ -54,9 +56,6 @@ public class CustomAdapter  extends ArrayAdapter<Assigntment> {
 
              }
          });
-
-
-
 
       }
      return view;

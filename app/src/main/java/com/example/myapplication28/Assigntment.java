@@ -1,50 +1,49 @@
 package com.example.myapplication28;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Assigntment {
-    private String duedate;
-    private String category;
-    private String name;
-    public String getCategory() {
-        return category;
-    }
+public class Assigntment implements Serializable {
+    protected String date;
+    protected String time;
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-
-
-    public Assigntment(String duedate, String catgory) {
-        this.duedate=duedate;
-        this.category= catgory;
-    }
 
     public Assigntment() {
     }
 
-    public String getDuedate() {
-        return duedate;
+
+    public Assigntment(String date, String time) {
+        this.date = date;
+        this.time = time;
+
     }
 
-    public void setDuedate(String duedate) {
-        this.duedate = duedate;
+    public String getDate() {
+        return date;
     }
 
-    public String getC() {
-        return category;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public void setC(String category) {
-        this.category= category;
+    public String getTime() {
+        return time;
     }
 
-    public String getName() {
-        return name;
+    public void setTime(String time) {
+        this.time = time;
     }
 
-    public void setName(String name) {
-        this.name = name;
+
+
+
+    @Override
+    public String toString() {
+        return "Train{" +
+                "date='" + date + '\'' +
+                ", time='" + time + '\'' +
+                '}';
     }
 }
+
+

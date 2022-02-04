@@ -48,7 +48,7 @@ public class ArrayListActivity extends AppCompatActivity {
         DatabaseReference myRef = database.getReference("users/"+UID);
         //adds an item to the firebase under the referenced specified
 
-        myRef.push().setValue(new Item("This is my first item", R.drawable.background, true, 50));
+    ///  myRef.push().setValue(new Item("This is my first item", R.drawable.background, true, 50));
         list = new ArrayList<>();
 
         buttonStart1 = findViewById(R.id.buttonstart1);
