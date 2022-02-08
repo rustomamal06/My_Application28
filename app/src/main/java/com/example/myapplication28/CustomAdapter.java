@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,8 +42,8 @@ public class CustomAdapter  extends ArrayAdapter<Assigntment> {
       if(view==null)
           view= LayoutInflater.from(context).inflate(resource,parent,false);
       Assigntment item =getItem(position);//method from the android studio, not related to Item object
-      if(item==null){
-          ImageView imageView=view.findViewById(R.id.checkBox);
+      if(item!=null){
+          CheckBox imageView=view.findViewById(R.id.checkBox);
 
           Button button = view.findViewById(R.id.buttonstart1);
           TextView textViewDate=view.findViewById(R.id.textViewDate);

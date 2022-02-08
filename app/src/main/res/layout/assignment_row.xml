@@ -23,7 +23,7 @@
                 android:id="@+id/textViewDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="description"
+                android:text=""
                 android:textColor="#123456"
                 android:textSize="24sp" />
 
@@ -31,7 +31,7 @@
                 android:id="@+id/textViewTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="description"
+                android:text=""
                 android:textColor="#123456"
                 android:textSize="24sp" />
         </LinearLayout>
