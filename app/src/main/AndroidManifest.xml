@@ -9,17 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication28">
+        <activity
+            android:name=".SlideShowActivity"
+            android:exported="true" />
+
         <service
             android:name=".MusicService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
         <service
             android:name=".NotificationIntentService"
             android:exported="false" />
-        <receiver android:name=".NotificationReciever"
+
+        <receiver
+            android:name=".NotificationReciever"
             android:enabled="true"
-            android:exported="true"
-     />
+            android:exported="true" />
+
         <activity
             android:name=".TimerActivity"
             android:exported="true" />
@@ -68,6 +74,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
