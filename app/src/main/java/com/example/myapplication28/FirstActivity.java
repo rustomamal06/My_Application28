@@ -44,7 +44,7 @@ public class FirstActivity extends AppCompatActivity {
     }
 
     public void Submit3(View view) {
-        Intent intent= new Intent(this,SetTimeActivity.class) ;
+        Intent intent= new Intent(this,NotesActivity.class) ;
         startActivity(intent);
     }
 
