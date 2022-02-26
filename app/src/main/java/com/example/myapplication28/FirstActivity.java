@@ -39,7 +39,7 @@ public class FirstActivity extends AppCompatActivity {
     }
 
     public void Submit2(View view) {
-        Intent intent= new Intent(this,TimerActivity.class) ;
+        Intent intent= new Intent(this,SetTimeActivity.class) ;
         startActivity(intent);
     }
 

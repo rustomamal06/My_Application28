@@ -50,7 +50,7 @@ public class SetTimeActivity extends AppCompatActivity implements AdapterView.On
 
     }
     public void Submit(View view) {
-        Intent intent= new Intent(this,TimerActivity.class) ;
+        Intent intent= new Intent(this,SlideShowActivity.class) ;
         intent.putExtra("TIME",selectedTime);
         startActivity(intent);
     }
