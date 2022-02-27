@@ -49,7 +49,7 @@
         android:layout_marginRight="30dp"
         android:layout_gravity="bottom|end"
         android:id="@+id/gotoeditnote"
-        android:src="@drawable/edit"
+        android:src="@drawable/ic_baseline_edit_24"
         android:background="#A1F4FB"
         app:maxImageSize="40dp"
 
