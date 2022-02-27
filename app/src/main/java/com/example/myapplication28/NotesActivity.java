@@ -21,8 +21,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Text;
@@ -35,22 +40,117 @@ public class NotesActivity extends AppCompatActivity {
     FloatingActionButton mcreatenotesfab;
     private FirebaseAuth firebaseAuth;
 
+    RecyclerView mrecyclerview;
+    StaggeredGridLayoutManager staggeredGridLayoutManager;
+
+    FirebaseUser firebaseUser;
+    FirebaseFirestore firebaseFirestore;
+
+    FirestoreRecyclerAdapter<Firebasemodel,NoteViewHolder> noteAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
-        mcreatenotesfab=findViewById(R.id.createnotefab);
-        firebaseAuth=FirebaseAuth.getInstance();
+        mcreatenotesfab = findViewById(R.id.createnotefab);
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        firebaseFirestore = FirebaseFirestore.getInstance();
+
         getSupportActionBar().setTitle("All Notes");
         mcreatenotesfab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(NotesActivity.this,CreateNoteActivity.class));
+                startActivity(new Intent(NotesActivity.this, CreateNoteActivity.class));
 
             }
         });
+        Query query = firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("myNotes").orderBy("title", Query.Direction.ASCENDING);
+        FirestoreRecyclerOptions<Firebasemodel> allusernotes = new FirestoreRecyclerOptions.Builder<Firebasemodel>().setQuery(query, Firebasemodel.class).build();
+        noteAdapter = new FirestoreRecyclerAdapter<Firebasemodel, NoteViewHolder>(allusernotes) {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            protected void onBindViewHolder(@NonNull NoteViewHolder noteViewHolder, int i, @NonNull Firebasemodel firebasemodel) {
+
+                ImageView popupbutton=noteViewHolder.itemView.findViewById(R.id.menupopbutton);
+
+                int colourcode=getRandomColor();
+                noteViewHolder.mnote.setBackgroundColor(noteViewHolder.itemView.getResources().getColor(colourcode,null));
+
+                noteViewHolder.notetitle.setText(firebasemodel.getTitle());
+                noteViewHolder.notecontent.setText(firebasemodel.getContent());
+
+                noteViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //we have to open note detail activity
+                        Intent intent=new Intent(v.getContext(),NoteDetailsActivity.class);
+                        intent.putExtra("title",firebasemodel.getTitle());
+                        intent.putExtra("content",firebasemodel.getContent());
+
+                        v.getContext().startActivity(intent);
+                        Toast.makeText(getApplicationContext(),"This is Clicked",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                popupbutton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        PopupMenu popupMenu=new PopupMenu(v.getContext(),v);
+                        popupMenu.setGravity(Gravity.END);
+                        popupMenu.getMenu().add("Edit").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener(){
+                            @Override
+                            public boolean onMenuItemClick(MenuItem menuItem) {
+                                Intent intent=new Intent(v.getContext(),EditNoteActivity.class);
+                                v.getContext().startActivity(intent);
+                                return false;
+                            }
+                        });
+                        popupMenu.getMenu().add("Delete").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener(){
+
+                            @Override
+                            public boolean onMenuItemClick(MenuItem menuItem) {
+                                Toast.makeText(v.getContext(),"This note is deleted",Toast.LENGTH_SHORT).show();
+                                return false;
+                            }
+                        });
+                    }
+                });
+            }
+            @NonNull
+            @Override
+            public NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.notes_layout,parent,false);
+                return new NoteViewHolder(view);
+            }
+        };
+        mrecyclerview=findViewById(R.id.recyclerview);
+        mrecyclerview.setHasFixedSize(true);
+        staggeredGridLayoutManager=new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+        mrecyclerview.setLayoutManager(staggeredGridLayoutManager);
+        mrecyclerview.setAdapter(noteAdapter);
+
     }
+
+    public class NoteViewHolder extends RecyclerView.ViewHolder
+    {
+        private TextView notetitle;
+        private TextView notecontent;
+        LinearLayout mnote;
+
+        public NoteViewHolder(@NonNull View itemView) {
+            super(itemView);
+            notetitle=itemView.findViewById(R.id.notetitle);
+            notecontent=itemView.findViewById(R.id.notecontent);
+            mnote=itemView.findViewById(R.id.note);
+
+
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -71,4 +171,40 @@ public class NotesActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        noteAdapter.startListening();
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(noteAdapter!=null)
+        {
+            noteAdapter.stopListening();
+        }
+    }
+
+    private int getRandomColor()
+    {
+        List<Integer> colorcode=new ArrayList<>();
+        colorcode.add(R.color.gray);
+        colorcode.add(R.color.pink);
+        colorcode.add(R.color.lightgreen);
+        colorcode.add(R.color.skyblue);
+        colorcode.add(R.color.color1);
+        colorcode.add(R.color.color2);
+        colorcode.add(R.color.color3);
+
+        colorcode.add(R.color.color4);
+        colorcode.add(R.color.color5);
+        colorcode.add(R.color.green);
+
+        Random random=new Random();
+        int number=random.nextInt(colorcode.size());
+        return colorcode.get(number);
+
+
+
+    }
 }
