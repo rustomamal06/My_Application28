@@ -34,7 +34,7 @@ public class SlideShowActivity extends AppCompatActivity {
     private CountDownTimer mCountDownTimer;
 
     private boolean mTimerRunning;
-
+    private    long start_time_in_millis;
     private long mTimeLeftInMillis = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class SlideShowActivity extends AppCompatActivity {
         sliderView.setSliderTransformAnimation(SliderAnimations.DEPTHTRANSFORMATION);
         sliderView.startAutoCycle();
         Bundle extras = getIntent().getExtras();
-        long start_time_in_millis = extras.getLong("TIME");
+         start_time_in_millis = extras.getLong("TIME");
         mTimeLeftInMillis=start_time_in_millis;
         mTextViewCountDown = findViewById(R.id.text_view_countdown);
 
@@ -110,6 +110,7 @@ public class SlideShowActivity extends AppCompatActivity {
     }
 
     private void resetTimer() {
+        mTimeLeftInMillis = start_time_in_millis;
         updateCountDownText();
         mButtonReset.setVisibility(View.INVISIBLE);
         mButtonStartPause.setVisibility(View.VISIBLE);

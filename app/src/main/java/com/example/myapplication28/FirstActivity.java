@@ -49,7 +49,7 @@ public class FirstActivity extends AppCompatActivity {
     }
 
     public void Submit4(View view) {
-        Intent intent= new Intent(this,SlideShowActivity.class) ;
+        Intent intent= new Intent(this,KonfettiActivity.class) ;
         startActivity(intent);
     }
 

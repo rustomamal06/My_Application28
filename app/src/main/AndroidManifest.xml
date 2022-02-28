@@ -10,13 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication28">
         <activity
+            android:name=".KonfettiActivity"
+            android:exported="true" />
+        <activity
             android:name=".NoteDetailsActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".EditNoteActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".CreateNoteActivity"
             android:exported="true"
