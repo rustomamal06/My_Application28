@@ -44,5 +44,5 @@ dependencies {
     implementation "androidx.cardview:cardview:1.0.0"
     implementation 'com.firebaseui:firebase-ui-firestore:4.1.0'
     implementation 'nl.dionsegijn:konfetti-xml:2.0.2'
-
+    implementation 'com.mikhaellopez:circularimageview:4.3.0'
 }
