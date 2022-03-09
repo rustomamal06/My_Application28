@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUPActivity extends AppCompatActivity {
@@ -55,6 +56,9 @@ public class SignUPActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            DatabaseReference myRef=database.getReference("profiles/"+user.getUid());
+                            String key=myRef.push().getKey();
+                            User u1=new User(editTextfullname.getText().toString(),email,editTextUsername.getText().toString(),editTextAge.getText().toString());
                             Intent i=new Intent(SignUPActivity.this,SetTimeActivity.class);
                             startActivity(i);
                         } else {

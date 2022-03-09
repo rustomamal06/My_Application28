@@ -1,5 +1,10 @@
 package com.example.myapplication28;
 
+import android.graphics.Bitmap;
+import android.util.Base64;
+
+import java.io.ByteArrayOutputStream;
+
 public class User {
     protected String fullname;
   protected String gmail;
@@ -9,11 +14,10 @@ public class User {
   protected String key;
 
 
-    public User(String fullname, String gmail, String username, String image, String age) {
+    public User(String fullname, String gmail, String username, String age) {
         this.fullname = fullname;
         this.gmail = gmail;
         this.username = username;
-        this.image = image;
         this.age = age;
         this.key=key;
     }
@@ -67,6 +71,8 @@ public class User {
     public void setKey(String key) {
         this.key = key;
     }
+
+
 
 }
 
