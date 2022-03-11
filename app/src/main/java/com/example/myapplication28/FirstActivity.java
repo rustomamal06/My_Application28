@@ -39,12 +39,12 @@ public class FirstActivity extends AppCompatActivity {
     }
 
     public void Submit2(View view) {
-        Intent intent= new Intent(this,SetTimeActivity.class) ;
+        Intent intent= new Intent(this,SignUPActivity.class) ;
         startActivity(intent);
     }
 
     public void Submit3(View view) {
-        Intent intent= new Intent(this,NotesActivity.class) ;
+        Intent intent= new Intent(this,DetailsActivity.class) ;
         startActivity(intent);
     }
 

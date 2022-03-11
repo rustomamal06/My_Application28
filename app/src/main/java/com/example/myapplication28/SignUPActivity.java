@@ -59,7 +59,11 @@ public class SignUPActivity extends AppCompatActivity {
                             DatabaseReference myRef=database.getReference("profiles/"+user.getUid());
                             String key=myRef.push().getKey();
                             User u1=new User(editTextfullname.getText().toString(),email,editTextUsername.getText().toString(),editTextAge.getText().toString());
-                            Intent i=new Intent(SignUPActivity.this,SetTimeActivity.class);
+                            u1.setKey(key);
+                            myRef=database.getReference("profiles/"+user.getUid()+"/"+key);
+                            myRef.setValue(u1);
+
+                            Intent i=new Intent(SignUPActivity.this,DetailsActivity.class);
                             startActivity(i);
                         } else {
                             // If sign in fails, display a message to the user.

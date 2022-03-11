@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -24,10 +25,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.HashMap;
 
-public class DetailsActivity extends AppCompatActivity {
+public class DetailsActivity extends AppCompatActivity implements View.OnClickListener {
 private TextView fullname;
     private TextView email;
     private TextView age;
@@ -37,12 +41,13 @@ private TextView fullname;
 private FirebaseDatabase database=FirebaseDatabase.getInstance("https://amal-s-project-default-rtdb.europe-west1.firebasedatabase.app/");
    private FirebaseAuth mAuth =FirebaseAuth.getInstance();
    private FirebaseUser user= mAuth.getCurrentUser();
+    private DatabaseReference myRef = database.getReference("profiles/"+user.getUid());
     private static final int CAMERA_REQUEST = 0;
     private static final int GALLERY_REQUEST = 1;
     //attributes
     private Button buttonCamera, buttonGallery;
     private ImageView imageViewProfile;
-private     DatabaseReference myRef = database.getReference("user/" + user.getUid());
+
 
     //for picture of camera
     private Bitmap picture;
@@ -51,14 +56,29 @@ private     DatabaseReference myRef = database.getReference("user/" + user.getUi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
-        fullname=findViewById(R.id.fullname);
+        fullname=findViewById(R.id.fullname1);
+        email=findViewById(R.id.email);
+        username=findViewById(R.id.username);
+       age=findViewById(R.id.age);
+    //gets reference for the design components
+    buttonCamera=findViewById(R.id.buttonCamera);
+    buttonCamera.setOnClickListener(this);
+
+    buttonGallery=findViewById(R.id.buttonGallery);
+    buttonGallery.setOnClickListener(this);
+
+    imageViewProfile=findViewById(R.id.imageViewProfile);
     myRef.addValueEventListener(new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
             for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                 User u = dataSnapshot.getValue(User.class);
+                Log.i("Profile111","user"+u+"Id"+user.getUid()+"u"+u.getFullname()+u.getUsername()+ u.getUsername()+ u.getAge());
                 updateUserData(new User(u.getFullname(), u.getGmail(), u.getUsername(), u.getAge()));
+           saveImage(picture);
+           StringToBitMap(image);
             }
+
         }
 
 
@@ -67,19 +87,15 @@ private     DatabaseReference myRef = database.getReference("user/" + user.getUi
 
         }
     });
-    //gets reference for the design components
-    buttonCamera=findViewById(R.id.buttonCamera);
-    buttonCamera.setOnClickListener((View.OnClickListener) this);
 
-    buttonGallery=findViewById(R.id.buttonGallery);
-    buttonGallery.setOnClickListener((View.OnClickListener) this);
-
-    imageViewProfile=findViewById(R.id.imageViewProfile);
 
 
     }
     private void updateUserData(User user){
        fullname.setText(user.getFullname());
+       email.setText(user.getGmail());
+       username.setText(user.getUsername());
+       age.setText(user.getAge());
 
     }
 
@@ -89,6 +105,9 @@ private     DatabaseReference myRef = database.getReference("user/" + user.getUi
         bitmap.compress(Bitmap.CompressFormat.PNG,100, baos);
         byte [] arr=baos.toByteArray();
         image= Base64.encodeToString(arr, Base64.DEFAULT);
+        HashMap<String, Object> values = new HashMap<>();
+        values.put("image", image);
+        myRef.updateChildren(values);
     }
 
     public void onClick(View view) {
@@ -101,7 +120,18 @@ private     DatabaseReference myRef = database.getReference("user/" + user.getUi
         }
     }
 
+    public Bitmap StringToBitMap(String image){
+        try{
+            byte [] encodeByte= Base64.decode(image,Base64.DEFAULT);
 
+            InputStream inputStream  = new ByteArrayInputStream(encodeByte);
+            Bitmap bitmap  = BitmapFactory.decodeStream(inputStream);
+            return bitmap;
+        }catch(Exception e){
+            e.getMessage();
+            return null;
+        }
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -111,7 +141,6 @@ private     DatabaseReference myRef = database.getReference("user/" + user.getUi
                 //set image captured to be the new image
                 imageViewProfile.setImageBitmap(picture);
                 saveImage(picture);
-                myRef.se
 
             }
         }else{

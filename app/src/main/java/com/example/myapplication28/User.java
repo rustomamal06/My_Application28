@@ -19,7 +19,6 @@ public class User {
         this.gmail = gmail;
         this.username = username;
         this.age = age;
-        this.key=key;
     }
 
     public User() {

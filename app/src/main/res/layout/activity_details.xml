@@ -33,8 +33,18 @@
             android:text="Take a Picture"
             android:textColor="@color/black"></Button>
 
+        <Button
+            android:id="@+id/buttonGallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#2AFF5722"
+            android:drawableLeft="@drawable/ic_camera"
+            android:text="Take a Picture"
+            android:textColor="@color/black"></Button>
 
         <TextView
+            android:id="@+id/fullname1"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="40dp"
@@ -44,6 +54,7 @@
             android:textSize="20dp"></TextView>
 
         <TextView
+            android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="40dp"
@@ -53,7 +64,7 @@
             android:textSize="20dp"></TextView>
 
         <TextView
-            android:id="@+id/fullname"
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="40dp"
@@ -63,6 +74,7 @@
             android:textSize="20dp"></TextView>
 
         <TextView
+            android:id="@+id/age"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="40dp"
