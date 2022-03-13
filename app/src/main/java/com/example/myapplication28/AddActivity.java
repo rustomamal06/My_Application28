@@ -102,7 +102,7 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
                         calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
                         calendar.set(Calendar.MINUTE, minute);
 
-                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yy HH:mm");
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss.SS");
 
                         date_time_in.setText(simpleDateFormat.format(calendar.getTime()));
                         time = new Time(hourOfDay, minute, 0);

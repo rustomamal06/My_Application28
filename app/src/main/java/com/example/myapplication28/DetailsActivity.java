@@ -37,7 +37,7 @@ private TextView fullname;
     private TextView age;
     private TextView username;
     private String image;
-
+    private User u;
 private FirebaseDatabase database=FirebaseDatabase.getInstance("https://amal-s-project-default-rtdb.europe-west1.firebasedatabase.app/");
    private FirebaseAuth mAuth =FirebaseAuth.getInstance();
    private FirebaseUser user= mAuth.getCurrentUser();
@@ -56,7 +56,7 @@ private FirebaseDatabase database=FirebaseDatabase.getInstance("https://amal-s-p
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
-        fullname=findViewById(R.id.fullname1);
+        fullname=findViewById(R.id.fullname);
         email=findViewById(R.id.email);
         username=findViewById(R.id.username);
        age=findViewById(R.id.age);
@@ -72,11 +72,10 @@ private FirebaseDatabase database=FirebaseDatabase.getInstance("https://amal-s-p
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
             for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                User u = dataSnapshot.getValue(User.class);
+               u = dataSnapshot.getValue(User.class);
                 Log.i("Profile111","user"+u+"Id"+user.getUid()+"u"+u.getFullname()+u.getUsername()+ u.getUsername()+ u.getAge());
-                updateUserData(new User(u.getFullname(), u.getGmail(), u.getUsername(), u.getAge()));
-           saveImage(picture);
-           StringToBitMap(image);
+                updateUserData(u);
+
             }
 
         }
@@ -96,18 +95,19 @@ private FirebaseDatabase database=FirebaseDatabase.getInstance("https://amal-s-p
        email.setText(user.getGmail());
        username.setText(user.getUsername());
        age.setText(user.getAge());
+        Bitmap b = StringToBitMap(user.getImage());
+        imageViewProfile.setImageBitmap(b);
 
     }
 
-    public void saveImage(Bitmap bitmap)
+    public void SaveImage(Bitmap bitmap)
     {
+        DatabaseReference myRef = database.getReference("profiles/"+user.getUid()+"/"+u.getKey());
         ByteArrayOutputStream baos=new  ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG,100, baos);
         byte [] arr=baos.toByteArray();
         image= Base64.encodeToString(arr, Base64.DEFAULT);
-        HashMap<String, Object> values = new HashMap<>();
-        values.put("image", image);
-        myRef.updateChildren(values);
+       myRef.child("image").setValue(image);
     }
 
     public void onClick(View view) {
@@ -140,7 +140,7 @@ private FirebaseDatabase database=FirebaseDatabase.getInstance("https://amal-s-p
                 picture=(Bitmap) data.getExtras().get("data");
                 //set image captured to be the new image
                 imageViewProfile.setImageBitmap(picture);
-                saveImage(picture);
+                SaveImage(picture);
 
             }
         }else{
