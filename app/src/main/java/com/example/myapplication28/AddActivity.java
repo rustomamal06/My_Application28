@@ -36,6 +36,7 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
     private Date date;
     private Time time;
     private String Category;
+    private EditText name;
     private FirebaseDatabase database = FirebaseDatabase.getInstance("https://amal-s-project-default-rtdb.europe-west1.firebasedatabase.app/");
     DatabaseReference myRef;
     private Spinner spinner;
@@ -50,6 +51,7 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
         date_time_in.setInputType(InputType.TYPE_NULL);
         spinner=findViewById(R.id.categoryspinner);
         startbutton = findViewById(R.id.buttonstart);
+        name=findViewById(R.id.assignmentname);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.category, android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
@@ -64,7 +66,7 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), ArrayListActivity.class);
 
-                a= new Assigntment(date.toString(), time.toString());
+                a= new Assigntment(date.toString(), time.toString(),name.toString());
                 myRef.push().setValue(a);
                 startActivity(i);
             }

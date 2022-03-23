@@ -6,15 +6,16 @@ import java.util.Date;
 public class Assigntment implements Serializable {
     protected String date;
     protected String time;
-
+    protected String name;
 
     public Assigntment() {
     }
 
 
-    public Assigntment(String date, String time) {
+    public Assigntment(String date, String time,String name) {
         this.date = date;
         this.time = time;
+        this.name=name;
 
     }
 
@@ -34,15 +35,20 @@ public class Assigntment implements Serializable {
         this.time = time;
     }
 
+    public String getName() {
+        return name;
+    }
 
-
+    public void setName(String name) {
+        this.name = name;
+    }
 
     @Override
     public String toString() {
-        return "Train{" +
+        return "Assignment{" +
                 "date='" + date + '\'' +
-                ", time='" + time + '\'' +
-                '}';
+                ", time='" + time + '\''
+                +"name='"+name+'}';
     }
 }
 

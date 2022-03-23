@@ -4,36 +4,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:descendantFocusability="blocksDescendants">
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="horizontal">
+        android:layout_height="78dp"
+        android:orientation="vertical">
 
-     
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/textViewname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_marginTop="20dp"
-                android:id="@+id/textViewname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Assigntment Name"
-                android:textColor="#123456"
-                android:textSize="24sp" />
+            android:layout_marginTop="20dp"
+            android:text="Assignment Name"
+            android:textColor="#123456"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/buttonstart1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="250dp"
+            android:backgroundTint="#2AFF5722"
+            android:text="Start Working"
+            android:textColor="@color/black" />
 
 
-            <TextView
-                android:id="@+id/textViewTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Date"
-                android:textColor="#123456"
-                android:textSize="24sp" />
+        <TextView
+            android:id="@+id/textViewTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textColor="#123456"
+            android:textSize="25sp" />
 
-    </LinearLayout>
+
     </RelativeLayout>
 
 </LinearLayout>

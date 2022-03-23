@@ -43,12 +43,11 @@ public class CustomAdapter  extends ArrayAdapter<Assigntment> {
           view= LayoutInflater.from(context).inflate(resource,parent,false);
       Assigntment item =getItem(position);//method from the android studio, not related to Item object
       if(item!=null){
-          CheckBox imageView=view.findViewById(R.id.checkBox);
+
 
           Button button = view.findViewById(R.id.buttonstart1);
-          TextView textViewDate=view.findViewById(R.id.textViewDate);
+          TextView textViewName=view.findViewById(R.id.assignmentname);
           TextView textViewTime=view.findViewById(R.id.textViewTime);
-          textViewDate.setText(item.getDate());
           textViewTime.setText(item.getTime());
          button.setOnClickListener(new OnClickListener() {
              @Override
