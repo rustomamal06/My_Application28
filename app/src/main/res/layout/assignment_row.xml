@@ -25,6 +25,7 @@
             android:layout_height="50dp"
             android:layout_marginLeft="250dp"
             android:backgroundTint="#2AFF5722"
+            android:onClick="Submit"
             android:text="Start Working"
             android:textColor="@color/black" />
 

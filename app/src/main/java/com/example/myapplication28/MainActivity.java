@@ -117,7 +117,7 @@ public void login(String email,String password)
                         // Sign in success, update UI with the signed-in user's information
                         Log.d(TAG, "signInWithEmail:success");
                         FirebaseUser user = mAuth.getCurrentUser();
-                      Intent i =new Intent(MainActivity.this,DetailsActivity.class);
+                      Intent i =new Intent(MainActivity.this,ArrayListActivity.class);
                       startActivity(i);
                     } else {
                         // If sign in fails, display a message to the user.

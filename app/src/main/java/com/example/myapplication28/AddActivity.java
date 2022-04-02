@@ -66,7 +66,7 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), ArrayListActivity.class);
 
-                a= new Assigntment(date.toString(), time.toString(),name.toString());
+                a= new Assigntment(date.toString(), time.toString(),name.getText().toString());
                 myRef.push().setValue(a);
                 startActivity(i);
             }

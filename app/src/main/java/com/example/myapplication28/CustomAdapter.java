@@ -39,6 +39,7 @@ public class CustomAdapter  extends ArrayAdapter<Assigntment> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
       View view=convertView;
+
       if(view==null)
           view= LayoutInflater.from(context).inflate(resource,parent,false);
       Assigntment item =getItem(position);//method from the android studio, not related to Item object
@@ -46,16 +47,13 @@ public class CustomAdapter  extends ArrayAdapter<Assigntment> {
 
 
           Button button = view.findViewById(R.id.buttonstart1);
-          TextView textViewName=view.findViewById(R.id.assignmentname);
+          TextView textViewName=view.findViewById(R.id.textViewname);
           TextView textViewTime=view.findViewById(R.id.textViewTime);
           textViewTime.setText(item.getTime());
-         button.setOnClickListener(new OnClickListener() {
-             @Override
-             public void onClick(View view) {
-                 Toast.makeText(context,"This item was added to shopping cart",Toast.LENGTH_LONG).show();
+          textViewName.setText(item.getName());
 
-             }
-         });
+
+
 
       }
      return view;
