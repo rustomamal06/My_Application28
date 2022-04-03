@@ -150,6 +150,7 @@ private FirebaseDatabase database=FirebaseDatabase.getInstance("https://amal-s-p
                     //Decode an input stream into bitmap
                     picture = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
                     imageViewProfile.setImageBitmap(picture);
+                    SaveImage(picture);
                 }catch (FileNotFoundException e){
                     e.printStackTrace();
                 }

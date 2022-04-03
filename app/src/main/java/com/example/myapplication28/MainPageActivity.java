@@ -14,17 +14,22 @@ public class MainPageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_page);
     }
     public void onClick1(View view) {
-        Intent intent= new Intent(this,ArrayListActivity.class) ;
+        Intent intent= new Intent(this,DetailsActivity.class) ;
         startActivity(intent);
     }
 
     public void onClick2(View view) {
-        Intent intent= new Intent(this,ArrayListActivity.class) ;
+        Intent intent= new Intent(this,NotesActivity.class) ;
         startActivity(intent);
     }
 
     public void onClick3(View view) {
         Intent intent= new Intent(this,ArrayListActivity.class) ;
+        startActivity(intent);
+    }
+
+    public void onClick4(View view) {
+        Intent intent= new Intent(this,SetTimeActivity.class) ;
         startActivity(intent);
     }
 }

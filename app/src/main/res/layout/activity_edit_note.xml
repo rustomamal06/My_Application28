@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/mybackground"
     tools:context=".EditNoteActivity">
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:id="@+id/toolbarofeditnote"
-        android:background="@color/white">
+        android:background="@drawable/mybackground">
 
 
         <EditText
@@ -24,15 +25,16 @@
     </androidx.appcompat.widget.Toolbar>
 
     <EditText
+        android:id="@+id/editcontentofnote"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="15sp"
-        android:background="#faf7f7"
-        android:gravity="top|left"
-        android:textColor="@color/black"
         android:layout_below="@id/toolbarofeditnote"
+        android:background="@drawable/mybackground"
+
+        android:gravity="top|left"
         android:padding="15dp"
-        android:id="@+id/editcontentofnote">
+        android:textColor="@color/black"
+        android:textSize="15sp">
 
     </EditText>
 

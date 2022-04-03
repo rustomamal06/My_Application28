@@ -63,7 +63,7 @@ public class SignUPActivity extends AppCompatActivity {
                             myRef=database.getReference("profiles/"+user.getUid()+"/"+key);
                             myRef.setValue(u1);
 
-                            Intent i=new Intent(SignUPActivity.this,DetailsActivity.class);
+                            Intent i=new Intent(SignUPActivity.this,MainActivity.class);
                             startActivity(i);
                         } else {
                             // If sign in fails, display a message to the user.

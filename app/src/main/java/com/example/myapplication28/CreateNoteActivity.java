@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -15,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -48,7 +50,8 @@ public class CreateNoteActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseFirestore=FirebaseFirestore.getInstance();
-        firebaseUser=FirebaseAuth.getInstance().getCurrentUser();
+        firebaseUser=firebaseAuth.getCurrentUser();
+
         msavenote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,11 +66,13 @@ public class CreateNoteActivity extends AppCompatActivity {
 
                     mprogressbarofcreatenote.setVisibility(View.VISIBLE);
 
+
                     DocumentReference documentReference=firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("myNotes").document();
+                    Log.i("amal","user:"+documentReference);
                     Map<String ,Object> note= new HashMap<>();
                     note.put("title",title);
                     note.put("content",content);
-
+                    Log.i("amal","user:"+note);
                     documentReference.set(note).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {

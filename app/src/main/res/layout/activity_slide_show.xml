@@ -62,7 +62,9 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/button_break"
         android:layout_marginTop="550dp"
+        android:onClick="Break"
         android:backgroundTint="#1DFF5722"
         android:text="Take a break"
         android:textColor="@color/black"

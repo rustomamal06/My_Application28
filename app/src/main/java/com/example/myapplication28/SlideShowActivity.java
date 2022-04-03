@@ -124,4 +124,9 @@ public class SlideShowActivity extends AppCompatActivity {
 
         mTextViewCountDown.setText(timeLeftFormatted);
     }
+
+    public void Break(View view) {
+        Intent intent= new Intent(this,KonfettiActivity.class) ;
+        startActivity(intent);
+    }
 }

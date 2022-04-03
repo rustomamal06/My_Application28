@@ -11,29 +11,21 @@
     <androidx.cardview.widget.CardView
         android:onClick="onClick1"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="125dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
         app:contentPadding="20dp"
-        app:cardBackgroundColor="#E0FBFC"
+        app:cardBackgroundColor="#2AFF5722"
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Profile"
             android:textStyle="bold"
-            android:textColor="#BF0603"
+            android:textColor="@color/black"
             android:textSize="18dp">
         </TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
-            android:layout_marginLeft="20dp"
-            android:text="inter your next training"
-            android:textColor="@color/black">
 
-        </TextView>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,19 +37,19 @@
     <androidx.cardview.widget.CardView
         android:onClick="onClick2"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="125dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
         app:contentPadding="20dp"
         android:layout_marginTop="20dp"
-        app:cardBackgroundColor="#98C1D9"
+        app:cardBackgroundColor="#2AFF5722"
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Notes"
             android:textStyle="bold"
-            android:textColor="#BF0603"
+            android:textColor="@color/black"
             android:textSize="18dp">
         </TextView>
         <ImageView
@@ -70,19 +62,19 @@
     <androidx.cardview.widget.CardView
         android:onClick="onClick3"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="125dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
         app:contentPadding="20dp"
         android:layout_marginTop="20dp"
-        app:cardBackgroundColor="#2A6F97"
+        app:cardBackgroundColor="#2AFF5722"
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="To do list"
             android:textStyle="bold"
-            android:textColor="#8D0801"
+            android:textColor="@color/black"
             android:textSize="18dp">
         </TextView>
         <ImageView
@@ -93,21 +85,21 @@
         </ImageView>
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
-        android:onClick="onClick3"
+        android:onClick="onClick4"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="125dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
         app:contentPadding="20dp"
         android:layout_marginTop="20dp"
-        app:cardBackgroundColor="#2A6F97"
+        app:cardBackgroundColor="#2AFF5722"
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Timer"
             android:textStyle="bold"
-            android:textColor="#8D0801"
+            android:textColor="@color/black"
             android:textSize="18dp">
         </TextView>
         <ImageView

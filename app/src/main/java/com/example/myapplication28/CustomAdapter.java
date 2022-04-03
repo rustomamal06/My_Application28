@@ -48,8 +48,8 @@ public class CustomAdapter  extends ArrayAdapter<Assigntment> {
 
           Button button = view.findViewById(R.id.buttonstart1);
           TextView textViewName=view.findViewById(R.id.textViewname);
-          TextView textViewTime=view.findViewById(R.id.textViewTime);
-          textViewTime.setText(item.getTime());
+          TextView textViewDate=view.findViewById(R.id.textViewDate);
+          textViewDate.setText(item.getDate());
           textViewName.setText(item.getName());
 
 

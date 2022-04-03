@@ -2,6 +2,7 @@ package com.example.myapplication28;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -125,5 +126,10 @@ crazyCelebration();
         String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
 
         mTextViewCountDown.setText(timeLeftFormatted);
+    }
+
+    public void keep(View view) {
+        Intent intent= new Intent(this,SetTimeActivity.class) ;
+        startActivity(intent);
     }
 }

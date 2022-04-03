@@ -27,7 +27,7 @@
         <Button
             android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:textColor="#BF0603"
+            android:textColor="@color/black"
             android:layout_marginTop="10dp"
             android:backgroundTint="@android:color/transparent"
             app:strokeColor="#00296b"
@@ -39,7 +39,7 @@
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:text="open Gallery"
-            android:textColor="#BF0603"
+            android:textColor="@color/black"
             android:layout_marginTop="10dp"
             android:backgroundTint="@android:color/transparent"
             app:strokeColor="#00296b"
