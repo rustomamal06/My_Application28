@@ -28,7 +28,7 @@ public class MainPageActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClick4(View view) {
+    public void onClick4(View view) { 
         Intent intent= new Intent(this,SetTimeActivity.class) ;
         startActivity(intent);
     }

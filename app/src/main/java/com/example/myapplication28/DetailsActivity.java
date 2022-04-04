@@ -96,7 +96,9 @@ private FirebaseDatabase database=FirebaseDatabase.getInstance("https://amal-s-p
        username.setText(user.getUsername());
        age.setText(user.getAge());
         Bitmap b = StringToBitMap(user.getImage());
-        imageViewProfile.setImageBitmap(b);
+        if(user.getImage()!=null) {
+            imageViewProfile.setImageBitmap(b);
+        }
 
     }
 

@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mybackground"
     tools:context=".NoteDetailsActivity">
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:id="@+id/toolbarofnotedetail"
-        android:background="@color/white">
+        android:background="@drawable/mybackground">
 
 
         <TextView
@@ -26,16 +25,16 @@
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
+        android:id="@+id/contentofnotedetail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="17sp"
+        android:layout_below="@id/toolbarofnotedetail"
         android:background="#faf7f7"
         android:gravity="top|left"
-        android:textColor="@color/black"
         android:hint="Enter your note content here"
-        android:layout_below="@id/toolbarofnotedetail"
         android:padding="15dp"
-        android:id="@+id/contentofnotedetail">
+        android:textColor="@color/black"
+        android:textSize="17sp">
 
     </TextView>
 

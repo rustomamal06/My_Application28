@@ -17,7 +17,7 @@
         android:layout_gravity="bottom|end"
         android:id="@+id/createnotefab"
         android:src="@drawable/ic_add"
-        android:background="#A1F4FB"
+        android:background="@color/black"
         app:maxImageSize="40dp"
 
         >

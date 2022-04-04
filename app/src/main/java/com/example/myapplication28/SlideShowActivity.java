@@ -18,7 +18,7 @@ import java.util.Locale;
 
 public class SlideShowActivity extends AppCompatActivity {
     SliderView sliderView;
-    int[] images = {R.drawable.one,
+    int[] images = {R.drawable.gg,
             R.drawable.two,
             R.drawable.three,
             R.drawable.four,
