@@ -129,7 +129,7 @@ crazyCelebration();
     }
 
     public void keep(View view) {
-        Intent intent= new Intent(this,SetTimeActivity.class) ;
+        Intent intent= new Intent(this,MainPageActivity.class) ;
         startActivity(intent);
     }
 }

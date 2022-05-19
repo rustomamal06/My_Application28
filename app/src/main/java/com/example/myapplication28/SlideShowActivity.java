@@ -19,11 +19,11 @@ import java.util.Locale;
 public class SlideShowActivity extends AppCompatActivity {
     SliderView sliderView;
     int[] images = {R.drawable.gg,
-            R.drawable.two,
-            R.drawable.three,
-            R.drawable.four,
-            R.drawable.five,
-            R.drawable.six};
+            R.drawable.quote,
+            R.drawable.quote2,
+            R.drawable.photo,
+            R.drawable.day,
+            R.drawable.strong};
     private Intent intent = getIntent();
 
 

@@ -186,9 +186,9 @@ public class NotesActivity extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.logout:
-                firebaseAuth.signOut();
+                //firebaseAuth.signOut();
                 finish();
-                startActivity(new Intent(NotesActivity.this,MainActivity.class));
+                startActivity(new Intent(NotesActivity.this,MainPageActivity.class));
         }
 
         return super.onOptionsItemSelected(item);

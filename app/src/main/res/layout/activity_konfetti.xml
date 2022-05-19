@@ -57,7 +57,7 @@
 <Button
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Keep Working"
+    android:text="Go Back"
     android:onClick="keep"
     android:layout_marginBottom="50dp"
     android:layout_below="@id/button_start_pause"
